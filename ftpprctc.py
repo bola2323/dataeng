@@ -17,7 +17,7 @@ ftp = ssh_client.open_sftp()
 
 # download a file from the remote server
 files = ftp.put(f'C:/Users/adebb/source_folder/crime_rates.csv',f"/upload/crime_rates.csv")
-
+print("files")
 
 # close the connection
 ftp.close()
