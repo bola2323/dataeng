@@ -16,7 +16,7 @@ print('connection established successfully')
 ftp = ssh_client.open_sftp()
 
 files = ftp.listdir("download")
-
+print(files)
 for i, file in enumerate(files):
 
    ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder/{file}')
