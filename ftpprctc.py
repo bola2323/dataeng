@@ -22,6 +22,7 @@ for i, file in enumerate(files):
    ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder/{file}')
 
    print(f'Moved {file}')
+   print(f'no of files pulled {i}')
 
     
 
