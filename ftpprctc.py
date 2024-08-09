@@ -1,24 +1,30 @@
+import os
+import shutil
 import paramiko
-
-# create ssh client 
 ssh_client = paramiko.SSHClient()
-
-# remote server credentials
 host = "demo.wftpserver.com"
 username = "demo"
 password = "demo"
 port = 2222
 
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
 ssh_client.connect(hostname=host,port=port,username=username,password=password)
 
-# create an SFTP client object
+print('connection established successfully') 
+
 ftp = ssh_client.open_sftp()
 
-# download a file from the remote server
-files = ftp.put(f'C:/Users/adebb/source_folder/crime_rates.csv',f"/upload/crime_rates.csv")
-print("files")
+files = ftp.listdir("download")
 
-# close the connection
-ftp.close()
+for i, file in enumerate(files):
+
+   ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder/{file}')
+
+   print(f'Moved {file}')
+
+    
+
+print("Listing all the files and Directory: ",files)
+
 ssh_client.close()
