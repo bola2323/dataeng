@@ -20,7 +20,7 @@ files = ftp.listdir("download")
 
 for i, file in enumerate(files):
     if file.endswith(".xlsx"):
-        ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder/{file}')
+        ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder2/{file}')
 
         print(f'Moved {file}')
 
