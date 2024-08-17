@@ -1,4 +1,4 @@
-
+import pandas as pd
 import requests
 import json
 import csv
@@ -9,6 +9,8 @@ csv_file = 'breweries_data.csv'
 csv_header = ['Name', 'Street', 'City', 'State', 'Country', 'Phone', 'Website']
 
 # Get request function
+# data = get_request(url)
+
 def get_request(data_url: str):
     response = requests.get(data_url)
     return response.json()
@@ -16,13 +18,14 @@ def get_request(data_url: str):
 
 
 # Function to manipulate and retrieve the data
-def brewery_loop(raw_data):
+# brewery_data_list = brewery_loop(data)
+def brewery_loop(data):
     brewery_info_list = []
-    num_Breweries_data = len(raw_data["data"])
+    num_Breweries_data = len(data["data"])
     for i in range(num_Breweries_data):
         New_Breweries_data = {}
         # name, street, city, state, country, phone number, and website 
-        for key, value in raw_data.items():
+        for key, value in data.items():
             New_Breweries_data.update(value[i])
         
         # Extract relevant information
@@ -61,3 +64,6 @@ brewery_data_list = brewery_loop(data)
 # Call the CSV function
 make_csv(brewery_data_list, csv_header, csv_file)
 print(f'Data has been written to {csv_file}')
+
+df = pd.DataFrame.from_dict(brewery_data_list)
+print(df)
