@@ -135,7 +135,8 @@ df = pd.read_csv(csv_file)
 # path = r'C:\Python\Live Scripts\Ops_Migration\destination_folder'
 path = r"C:\Users\adebb\destination_folder"
 
-df.to_csv(path +'/christian.csv')
+# df.to_csv(path +'/christian.csv')
+df.to_csv(path +'/bamyat_sales.csv')
 print("file now saved")
 
  
@@ -169,6 +170,6 @@ cursor = conn.cursor()
 
  
 
-df.to_sql('dbo.Brewery_Data', con=engine, if_exists='append')
+df.to_sql('dbo.Iron_Mountain', con=engine, if_exists='append')
 
 print(f'Data has been written to {csv_file}')
