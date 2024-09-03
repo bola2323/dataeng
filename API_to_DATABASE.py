@@ -170,6 +170,7 @@ cursor = conn.cursor()
 
  
 
-df.to_sql('dbo.Iron_Mountain', con=engine, if_exists='append')
+# df.to_sql('dbo.Kabo', con=engine, if_exists='append')
+df.to_sql('dbo.Kabo', con=engine,)
 
 print(f'Data has been written to {csv_file}')
