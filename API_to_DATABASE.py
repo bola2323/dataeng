@@ -171,6 +171,6 @@ cursor = conn.cursor()
  
 
 # df.to_sql('dbo.Kabo', con=engine, if_exists='append')
-df.to_sql('dbo.Kabo', con=engine,)
+df.to_sql('dbo.Kabo2', con=engine,)
 
 print(f'Data has been written to {csv_file}')
