@@ -19,7 +19,7 @@ files = ftp.listdir("download")
 print(files)
 for i, file in enumerate(files):
 
-   ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_folder/{file}')
+   ftp.get(f'/download/{file}', f'C:/Users/adebb/destination_bami/{file}')
 
    print(f'Moved {file}')
    print(f'no of files pulled {i}')
